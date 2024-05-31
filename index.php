@@ -140,7 +140,7 @@
 			Secret:<br>
 			&ndash; <span class="uselect">1x0000000000000000000000000000000AA</span> &ndash; Always passes<br>
 			&ndash; <span class="uselect">2x0000000000000000000000000000000AA</span> &ndash; Always fails<br>
-			&ndash; <span class="uselect">3x0000000000000000000000000000000AA</span> - Yields a “token already spent” error<br>
+			&ndash; <span class="uselect">3x0000000000000000000000000000000AA</span> - Yields a "token already spent" error<br>
 		</section>
 
 		<hr>
