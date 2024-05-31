@@ -100,7 +100,7 @@
 	<body>
 		<?php
 			if(count($_POST)){
-				$secret = !empty($_POST["secrekey"]) ? $_POST["secrekey"] : "3x0000000000000000000000000000000AA";
+				$secret = !empty($_POST["secrekey"]) ? $_POST["secrekey"] : "1x0000000000000000000000000000000AA";
 				$response = !empty($_POST["response-field-name"]) ? $_POST["response-field-name"] : "cf-turnstile-response";
 				$response = !empty($_POST[$response]) ? $_POST[$response] : false;
 
@@ -158,7 +158,7 @@
 			<span class="desc" title="Every widget has a sitekey. This sitekey is associated with the corresponding widget configuration and is created upon the widget creation.">Every widget has a sitekey. This sitekey is associated with the corresponding widget configuration and is created upon the widget creation.</span>
 
 			<span class="label">secretkey</span>
-			<input type="text" name="secretkey" value="3x0000000000000000000000000000000AA" style="min-width:200px;">
+			<input type="text" name="secretkey" value="1x0000000000000000000000000000000AA" style="min-width:200px;">
 			<span class="desc"></span>
 
 			<span class="label">action</span>
