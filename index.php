@@ -109,6 +109,7 @@
 					curl_setopt($ch, CURLOPT_URL, "https://challenges.cloudflare.com/turnstile/v0/siteverify");
 					curl_setopt($ch, CURLOPT_POST, true);
 					curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+					curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
 					curl_setopt($ch, CURLOPT_POSTFIELDS, [
 						"secret" => $secret,
 						"response" => $response,
@@ -116,11 +117,12 @@
 					]);
 
 					$server_output = curl_exec($ch);
+					$httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 
 					curl_close($ch);
 
 					echo "<pre>";
-						echo json_encode(json_decode($server_output), JSON_PRETTY_PRINT);
+						echo $httpCode . json_encode(json_decode($server_output), JSON_PRETTY_PRINT);
 					echo "</pre>";
 				} else {
 					echo "<font color=red>NO CAPTCHA DATA</font>";
