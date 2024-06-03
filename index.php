@@ -122,7 +122,7 @@
 					curl_close($ch);
 
 					echo "<pre>";
-						echo $httpCode . json_encode(json_decode($server_output), JSON_PRETTY_PRINT);
+						echo "HTTP $httpCode " . json_encode(json_decode($server_output), JSON_PRETTY_PRINT);
 					echo "</pre>";
 				} else {
 					echo "<font color=red>NO CAPTCHA DATA</font>";
