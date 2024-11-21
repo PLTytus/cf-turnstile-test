@@ -52,7 +52,9 @@
 
 		<script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit"></script>
 
-		<script type="text/javascript">			
+		<script type="text/javascript">
+			var FIRST = true;
+
 			getWidget = (button) => {
 				let f = button.form;
 
@@ -76,6 +78,11 @@
 					}
 				});
 
+				if(FIRST){
+					FIRST = false;
+				} else {
+					turnstile.remove("#widget");
+				}
 				turnstile.render("#widget", options);
 			};
 
@@ -277,9 +284,10 @@
 			<span class="label">size</span>
 			<select name="size">
 				<option value="normal">normal</otpion>
+				<option value="flexible">flexible</option>
 				<option value="compact">compact</otpion>
 			</select>
-			<span class="desc" title="The widget size. Can take the following values: normal, compact.">The widget size. Can take the following values: normal, compact.</span>
+			<span class="desc" title="The widget size. Can take the following values: normal, flexible, compact.">The widget size. Can take the following values: normal, flexible, compact.</span>
 
 			<span class="label">retry</span>
 			<select name="retry">
@@ -315,6 +323,13 @@
 				<option value="interaction-only">interaction-only</otpion>
 			</select>
 			<span class="desc" title="Appearance controls when the widget is visible. It can be always (default), execute, or interaction-only. Refer to Appearance modes for more information.">Appearance controls when the widget is visible. It can be always (default), execute, or interaction-only. Refer to Appearance modes for more information.</span>
+
+			<span class="label">feedback-enabled</span>
+			<span>
+				<label><input type="radio" name="feedback-enabled" value="0"> false</label>
+				<label><input type="radio" name="feedback-enabled" value="1" checked> true</label>
+			</span>
+			<span class="desc" title="Allows Cloudflare to gather visitor feedback upon widget failure. It can be true (default) or false.">Allows Cloudflare to gather visitor feedback upon widget failure. It can be true (default) or false.</span>
 
 			<div id="widget_container">
 				<div id="widget"></div>
